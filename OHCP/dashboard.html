@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fc;
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: linear-gradient(180deg, #6c5ce7, #0984e3);
+            color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 15px 20px;
+            display: block;
+        }
+
+        .sidebar a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+        }
+
+        .sidebar .brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+        .header {
+            background-color: #fff;
+            border-bottom: 1px solid #dee2e6;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header .profile {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .profile img {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .card {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border: none;
+            border-radius: 8px;
+        }
+
+        .chart-container {
+            margin-top: 20px;
+        }
+
+        .info-box {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .info-box .card {
+            flex: 1;
+            margin-right: 20px;
+            text-align: center;
+        }
+
+        .info-box .card:last-child {
+            margin-right: 0;
+        }
+
+        .user-table {
+            margin-top: 30px;
+        }
+
+        .user-table table {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="brand">Content Management</div>
+        <a href="manage-user.html"><i class="fas fa-users"></i> Manage Users</a>
+        <a href="monitor-content.html"><i class="fas fa-tasks"></i> Monitor Content</a>
+        <a href="generate-reports.html"><i class="fas fa-chart-line"></i> Generate Reports</a>
+    </div>
+
+    <div class="content">
+        <div class="header">
+            <h1>Dashboard</h1>
+            <div class="profile">
+                <img src="https://via.placeholder.com/35" alt="Profile">
+                <span>Admin</span>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <h3>Login User Statistics</h3>
+            <canvas id="barChart" height="100"></canvas>
+        </div>
+
+        <div class="info-box">
+            <div class="card p-3">
+                <h5>Login Users</h5>
+                <h3>1.8k</h3>
+            </div>
+            <div class="card p-3">
+                <h5>Visited Users</h5>
+                <h3>3.4k</h3>
+            </div>
+        </div>
+
+        <div class="user-table">
+            <h3>Registered Users</h3>
+            <table class="table table-striped table-hover">
+                <thead class="table-primary">
+                    <tr>
+                        <th>ID</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Registration Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Placeholder rows for dynamic content -->
+                    <tr>
+                        <td>1</td>
+                        <td>John Doe</td>
+                        <td>john@example.com</td>
+                        <td>1234567890</td>
+                        <td>123 Main St, City</td>
+                        <td>2025-01-01</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Jane Smith</td>
+                        <td>jane@example.com</td>
+                        <td>0987654321</td>
+                        <td>456 Elm St, City</td>
+                        <td>2025-01-02</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('barChart').getContext('2d');
+        const barChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [
+                    {
+                        label: 'Login Users',
+                        data: [30, 45, 50, 60, 70, 65, 75, 80, 85, 90, 95, 100],
+                        backgroundColor: 'rgba(99, 110, 255, 0.6)',
+                    },
+                    {
+                        label: 'Visited Users',
+                        data: [50, 60, 70, 85, 90, 80, 95, 100, 110, 120, 125, 130],
+                        backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                    },
+                ],
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                },
+            },
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+/* ... existing styles ... */
+
+main {
+    padding: 20px;
+    background: #fff;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    max-width: 1000px; /* Updated max-width */
+    animation: slideIn 0.5s ease;
+}
+
+#analytics {
+    margin-top: 30px; /* Add some separation */
+}
+
+canvas {
+    max-width: 100%; /* Make the canvas responsive */
+    margin: 0 auto; /* Center align the chart */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin: 5px 0;
+    }
+
+    main {
+        margin: 10px;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+    
+    h2 {
+        font-size: 1.5em; /* Responsive h2 size */
+    }
+
+    h3 {
+        font-size: 1.25em; /* Responsive h3 size */
+    }
+}
+
+@media (max-width: 576px) {
+    #analytics-content p {
+        font-size: 0.9em; /* Smaller font for smaller devices */
+    }
+}

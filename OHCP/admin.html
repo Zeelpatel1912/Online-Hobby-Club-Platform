@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Online Hobby Club</title>
+    <link rel="stylesheet" href="admin-styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js CDN -->
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Admin Panel</h2>
+            <nav>
+                <ul>
+                    <li><a href="#user-management">User Management</a></li>
+                    <li><a href="#content-moderation">Content Moderation</a></li>
+                    <li><a href="#user-activity">User Activity</a></li>
+                    <li><a href="#analytics">Analytics</a></li>
+                    <li><a href="#logout">Logout</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <section id="user-management" class="card">
+                <h3>User Management</h3>
+                <div class="card-content">
+                    <!-- User summary can be displayed as a card instead of a table -->
+                    <p>Total Registered Users: <span id="total-users">0</span></p>
+                    <button id="view-users-btn">View Users</button>
+                </div>
+            </section>
+
+            <section id="content-moderation" class="card">
+                <h3>Content Moderation</h3>
+                <div class="card-content">
+                    <p>Total Posts Pending Approval: <span id="total-posts">0</span></p>
+                    <button id="view-posts-btn">View Posts</button>
+                </div>
+            </section>
+
+            <section id="user-activity" class="card">
+                <h3>User Activity</h3>
+                <div class="card-content">
+                    <canvas id="userEngagementChart" width="400" height="200"></canvas>
+                </div>
+            </section>
+
+            <section id="analytics" class="card">
+                <h3>Analytics Dashboard</h3>
+                <div class="card-content">
+                    <p>Total Events: <span id="total-events">0</span></p>
+                    <button id="view-analytics-btn">View Analytics</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        &copy; 2025 Hobby Club. Admin Panel.
+    </footer>
+
+    <script src="admin-script.js"></script>
+</body>
+</html>
